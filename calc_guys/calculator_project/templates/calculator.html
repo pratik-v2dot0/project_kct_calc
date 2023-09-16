@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Mooli&family=Roboto&display=swap');
+
+*{
+    font-family: 'Mooli', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+    .container{
+        display:flex;
+        gap:40px;
+        justify-content: space-around;
+        }
+
+    p{
+        text-align : center;
+    }
+
+    form{
+        display:flex;
+        flex-direction:column;
+    }
+
+    input , select{
+        background-color: 90ee90;
+        border: ;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+</style>
+<body>
+    <div class="container">
+    <div>
+    <h1>POST Method </h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" name="num1" placeholder="Number 1" required><br>
+        <input type="number" name="num2" placeholder="Number 2" required><br>
+        <select name="operation" required>
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select><br>
+        <input type="submit" value="Calculate">
+    </form>
+</div>
+<div>
+    <h1>GET Method</h1>
+    <form method="get">
+        <input type="number" name="num1" placeholder="Number 1"><br>
+        <input type="number" name="num2" placeholder="Number 2"><br>
+        <select name="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select><br>
+        <input type="submit" value="Calculate">
+    </form>
+</div>
+</div>
+    {% if result %}
+    <p>Result: {{ result }}</p>
+    {% endif %}
+
+</body>
+</html>
